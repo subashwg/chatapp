@@ -1,16 +1,16 @@
 <div class= "jumbotron">
   Chat with your people
   <div class= "well" id='chatbox' style= "height:350px; border: solid 1px #222222; overflow-y:scroll">
-    <% @messages.each do |message| %>
+    <% @messagesWithUsername.each do |message| %>
       <%= render 'messages/message', message: message %>
     <% end %> 
   </div>
   <% if current_user %>
-    <%= form_with model: @message do |f| %>
+    <%= form_with model: @m do |f| %>
       <div class= "input-group mb-3">
-        <%= f.text_field :body, placeholder: "send message..", class:'form-control' %>
+        <%= f.text_field :body, placeholder: "send message..", id:'message-text', class:'form-control' %>
         <div class= "input-group-append">
-          <%= f.submit "Send", class: "btn btn-primary" %>
+          <%= f.submit "Send", id:'send-btn', class: "btn btn-primary" %>
         </div>
       </div>
     <% end %>
@@ -18,3 +18,10 @@
     You need to be <%= link_to 'Logged In', new_user_session_path %> to be able to chat.
   <% end %>
 </div>
+<script>
+  document.getElementById('send-btn').addEventListener("click", function(){
+    setTimeout(function(){
+      document.getElementById("message-text").value = "";
+     }, 1);
+  });
+</script>

@@ -1,4 +1,10 @@
 <div class ="well">
-  [<%= message.created_at.strftime("%I:%M %p") %>] <%= message.user_id %>:
-  <%= message.body %>
+  [<%= message.created_at.strftime("%I:%M %p") %>] 
+    <% if defined? message.username then %>
+      <%= message.username %>:
+    <% end %>
+    <% if defined? username then %>
+      <%= username %>:
+    <% end %>
+    <%= message.body %>
 </div>
