@@ -1,24 +1,11 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Chat App
+Some of the features that I have covered are:
+- User will be able to signup/sign-in/reset password..
+- User will be able to add in his/her details.
+- Each user will have a unique username.
+- Users can chat each other in public chatroom.
+#### Using it locally
+- Install Rails : https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rvm-on-ubuntu-18-04
+```
+rails s
+```
