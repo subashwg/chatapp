@@ -1,0 +1,20 @@
+<div class= "jumbotron">
+  Chat with your people
+  <div class= "well" id='chatbox' style= "height:350px; border: solid 1px #222222; overflow-y:scroll">
+    <% @messages.each do |message| %>
+      <%= render 'messages/message', message: message %>
+    <% end %> 
+  </div>
+  <% if current_user %>
+    <%= form_with model: @message do |f| %>
+      <div class= "input-group mb-3">
+        <%= f.text_field :body, placeholder: "send message..", class:'form-control' %>
+        <div class= "input-group-append">
+          <%= f.submit "Send", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    You need to be <%= link_to 'Logged In', new_user_session_path %> to be able to chat.
+  <% end %>
+</div>
